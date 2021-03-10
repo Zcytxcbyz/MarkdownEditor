@@ -1,0 +1,30 @@
+.editor-split-line {
+  background-color: #e0e0e0;
+  width: 1px;
+  height: 17px;
+  margin: 10px;
+}
+.header-heading{
+  font-family: Arial;
+  font-weight: bold;
+}
+#markdown-editor-editor{
+  display: flex;
+}
+#markdown-editor-editor *{
+  padding: 10px;
+  height: 100%;
+  width: 50%;
+  white-space: nowrap;
+  overflow: auto;
+}
+#editor-area{
+  resize: none;
+  border: none;
+  background-color: whitesmoke;
+  outline: none;
+}
+#viewer-area{
+  background-color: snow;
+}
+

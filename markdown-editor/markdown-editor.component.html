@@ -1,0 +1,66 @@
+<div id="markdown-editor" class="p-2">
+  <div id="markdown-editor-header">
+    <div class="input-group">
+      <button class="btn btn-secondary" type="button" data-toggle="tooltip" title="返回">
+        <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      </button>
+      <input type="text" class="form-control ml-2" name="name" id="name" placeholder="标题" aria-label="">
+      <button class="btn btn-outline-warning ml-2" type="button">保存</button>
+    </div>
+    <div class="btn-group mt-2 bg-light w-100 overflow-hidden" role="group">
+      <button type="button" class="btn btn-light" data-toggle="tooltip" title="加粗" (click)="text_bold(editor_area)"><i class="fas fa-bold"></i></button>
+      <button type="button" class="btn btn-light" data-toggle="tooltip" title="斜体" (click)="text_italic(editor_area)"><i class="fas fa-italic"></i></button>
+      <button type="button" class="btn btn-light" data-toggle="tooltip" title="删除线" (click)="text_strikethrough(editor_area)"><i class="fas fa-strikethrough"></i></button>
+      <button type="button" class="btn btn-light" data-toggle="tooltip" title="下划线" (click)="text_underline(editor_area)"><i class="fas fa-underline"></i></button>
+      <div class="editor-split-line"></div>
+      <button type="button" class="btn btn-light header-heading" data-toggle="tooltip" title="标题1" (click)="text_heading(editor_area,1)">H1</button>
+      <button type="button" class="btn btn-light header-heading" data-toggle="tooltip" title="标题2" (click)="text_heading(editor_area,2)">H2</button>
+      <button type="button" class="btn btn-light header-heading" data-toggle="tooltip" title="标题3" (click)="text_heading(editor_area,3)">H3</button>
+      <button type="button" class="btn btn-light header-heading" data-toggle="tooltip" title="标题4" (click)="text_heading(editor_area,4)">H4</button>
+      <button type="button" class="btn btn-light header-heading" data-toggle="tooltip" title="标题5" (click)="text_heading(editor_area,5)">H5</button>
+      <button type="button" class="btn btn-light header-heading" data-toggle="tooltip" title="标题6" (click)="text_heading(editor_area,6)">H6</button>
+      <div class="editor-split-line"></div>
+      <button type="button" class="btn btn-light" data-toggle="tooltip" title="无序列表" (click)="text_list_ul(editor_area)"><i class="fas fa-list-ul"></i></button>
+      <button type="button" class="btn btn-light" data-toggle="tooltip" title="有序列表" (click)="text_list_ol(editor_area)"><i class="fas fa-list-ol"></i></button>
+      <button type="button" class="btn btn-light" data-toggle="tooltip" title="任务列表" (click)="text_list_tasks(editor_area)"><i class="fas fa-tasks"></i></button>
+      <button type="button" class="btn btn-light" data-toggle="tooltip" title="引用" (click)="text_quote(editor_area)"><i class="fas fa-quote-left"></i></button>
+      <button type="button" class="btn btn-light" data-toggle="tooltip" title="代码块" (click)="text_code(editor_area)"><i class="fas fa-code"></i></button>
+      <div class="editor-split-line"></div>
+      <button type="button" class="btn btn-light" data-toggle="tooltip" title="图片" (click)="text_image(image_alert)"><i class="fas fa-image"></i></button>
+      <button type="button" class="btn btn-light" data-toggle="tooltip" title="视频" (click)="text_video(video_alert)"><i class="fas fa-video"></i></button>
+      <div class="editor-split-line"></div>
+      <button type="button" class="btn btn-light" data-toggle="tooltip" title="表格" (click)="text_tables(editor_area)"><i class="fas fa-table"></i></button>
+      <button type="button" class="btn btn-light" data-toggle="tooltip" title="超链接" (click)="text_link(editor_area,link_alert)">
+        <i class="fas fa-link"></i>
+      </button>
+      <div class="editor-split-line"></div>
+      <button type="button" class="btn btn-light" data-toggle="tooltip" title="撤销" (click)="text_undo()"><i class="fas fa-undo"></i></button>
+      <button type="button" class="btn btn-light" data-toggle="tooltip" title="重做" (click)="text_redo()"><i class="fas fa-redo"></i></button>
+    </div>
+  </div>
+  <div id="markdown-editor-editor">
+    <textarea id="editor-area" (keyup)="EditorAreaChanged(editor_area)" (change)="EditorAreaChanged(editor_area)" #editor_area></textarea>
+    <div id="viewer-area"></div>
+  </div>
+</div>
+<app-alert-input enable="false" #link_alert>
+  <label>请输入链接地址</label>
+  <input type="text" class="form-control" placeholder="链接地址" #link_alert_address>
+  <input type="text" class="form-control mt-2" placeholder="链接描述" #link_alert_describe>
+  <div class="container">
+    <div class="row">
+      <button type="button" class="btn btn-success mt-3 ml-0 mr-1 col" (click)="text_link_insert(editor_area,link_alert_address,link_alert_describe,link_alert)">确定</button>
+      <button type="button" class="btn btn-warning mt-3 ml-1 mr-0 col" (click)="text_link_cancel(link_alert_address,link_alert_describe,link_alert)">取消</button>
+    </div>
+  </div>
+</app-alert-input>
+<app-alert-input enable="false" #image_alert>
+  <button type="button" class="btn btn-success w-100" (click)="image_alert_file.click()">上传图片</button>
+  <input type="file" style="display: none" #image_alert_file>
+  <button type="button" class="btn btn-warning mt-3 w-100" (click)="image_alert_cancel(image_alert_file,image_alert)">取消</button>
+</app-alert-input>
+<app-alert-input enable="false" #video_alert>
+  <button type="button" class="btn btn-success w-100" (click)="video_alert_file.click()">上传视频</button>
+  <input type="file" style="display: none" #video_alert_file>
+  <button type="button" class="btn btn-warning mt-3 w-100" (click)="video_alert_cancel(video_alert_file,video_alert)">取消</button>
+</app-alert-input>

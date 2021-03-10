@@ -1,0 +1,7 @@
+.alert-content{
+  position: fixed;
+  padding: 20px;
+  background-color: whitesmoke;
+  border-radius: 1%;
+  box-shadow: 1px 1px 5px rgba(1,1,1,0.5);
+}

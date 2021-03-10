@@ -1,0 +1,3 @@
+<div class="alert-content" [style.top]="SetAlertTop(alert_content)" [style.left]="SetAlertLeft(alert_content)" #alert_content *ngIf="EnabledAlert()">
+  <ng-content></ng-content>
+</div>
